@@ -1,0 +1,6 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+  --secondary-gradient: linear-gradient(135deg, #059669 0%, #0891b2 100%);
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}

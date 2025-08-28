@@ -8,7 +8,7 @@ export default [
     ),
     children: [
       {
-        path: ":uri?",
+        path: ":segment?",
         name: "home",
         components: {
           viewMain: (): Promise<typeof import("*.vue")> => import(

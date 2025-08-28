@@ -10,9 +10,7 @@ export default new Vuetify({
       customProperties: true,
     },
     themes: {
-      light: {
-        primary: "#6600cc",
-      },
+      light: {},
     },
   },
   icons: {
