@@ -22,7 +22,7 @@
   @Component({
     components: {
       AnalizerEmailSectionComponent: () => import(
-        /* webpackChuckName: "toolbar-component" */
+        /* webpackChuckName: "analizer-email-section-component" */
         /* webpackMode: "eager" */
         "@/components/layout/sections/AnalizerEmailSectionComponent.vue"
       )
