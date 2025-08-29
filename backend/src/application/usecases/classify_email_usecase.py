@@ -8,9 +8,8 @@ class ClassifyEmailUseCase:
   def execute(self, text:str) -> Email:
     email = Email(raw_text=text)
 
-
-    category = self.ai_service.classify(text)
-    response = self.ai_service.generate_response(text, category)
+    category = self.ai_service.classify_gpt(text)
+    response = self.ai_service.generate_response(text)
 
     email.category = category
     email.suggested_response = response

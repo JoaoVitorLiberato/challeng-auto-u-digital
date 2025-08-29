@@ -27,29 +27,5 @@ module.exports = {
       color: "#6600cc",
       entry: "./src/main"
     }
-  },
-
-  pwa: {
-    name: "app",
-    themeColor: "#6600cc",
-    msTileColor: "#6600cc",
-    appleMobileWebAppCapable: "yes",
-    appleMobileWebAppTitle: "app",
-    appleMobileWebAppStatusBarStyle: "black",
-    assetsVersion: process.env.npm_package_version,
-    manifestOptions: {
-      id: process.env.npm_package_version,
-      short_name: "app",
-      description: "default app",
-      background_color: "#f5f5f5",
-      orientation: "portrait",
-      start_url: "/",
-      protocol_handlers: [
-        {
-          protocol: "web+app",
-          url: "/%s"
-        }
-      ]
-    }
   }
 }

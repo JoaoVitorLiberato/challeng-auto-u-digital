@@ -83,7 +83,63 @@
     <v-col
       cols="12"
     >
-      <InputFileComponent></InputFileComponent>
+      <v-btn
+        class="text-none mx-1"
+        depressed
+        rounded
+        width="140"
+        x-large
+        :style="typeSendAnalyzer === 'upload' ? 'background: linear-gradient(135deg, #1976d2, #7b1fa2)' : 'background:transparent'"
+        @click="typeSendAnalyzer = `upload`"
+      >
+        <span
+          :class="typeSendAnalyzer === 'upload' ? `white--text` : 'black--text'"
+        >
+          Upload
+        </span>
+      </v-btn>
+
+      <v-btn
+        class="text-none mx-1"
+        depressed
+        rounded
+        width="140"
+        x-large
+        :style="typeSendAnalyzer === 'text' ? 'background: linear-gradient(135deg, #1976d2, #7b1fa2)' : 'background:transparent'"
+        @click="typeSendAnalyzer = `text`"
+      >
+        <span
+          :class="typeSendAnalyzer === 'text' ? `white--text` : 'black--text'"
+        >
+          Texto
+        </span>
+      </v-btn>
+    </v-col>
+
+    <v-col
+      cols="12"
+      class="py-2"
+    />
+
+    <v-col
+      cols="12"
+    >
+      <v-slide-y-transition
+        mode="out-in"
+        class="py-0"
+      >
+        <div
+          :key="`type-${typeSendAnalyzer}`"
+        >
+          <InputFileComponent
+            v-if="typeSendAnalyzer === 'upload'"
+          />
+
+          <InputTextAreaComponent
+            v-else-if="typeSendAnalyzer === 'text'"
+          />
+        </div>
+      </v-slide-y-transition>
     </v-col>
   </v-row>
 </template>
@@ -91,6 +147,7 @@
 <script lang="ts">
   import { Component } from "vue-property-decorator"
   import { mixins } from "vue-class-component"
+  import { MixinHandleChangeInput } from "@/mixins/MixinHandleChangeInput"
 
   @Component({
     components: {
@@ -98,8 +155,15 @@
         /* webpackChuckName: "input-file-component" */
         /* webpackMode: "eager" */
         "@/components/input/InputFileComponent.vue"
+      ),
+      InputTextAreaComponent: () => import (
+        /* webpackChuckName: "input-text-area-component" */
+        /* webpackMode: "eager" */
+        "@/components/input/InputTextAreaComponent.vue"
       )
     }
   })
-  export default class AnalizerEmailSectionComponent extends mixins() {}
+  export default class AnalizerEmailSectionComponent extends mixins(
+    MixinHandleChangeInput
+  ) {}
 </script>

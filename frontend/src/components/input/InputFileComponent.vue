@@ -116,11 +116,14 @@
             </v-card>
           </transition>
 
-          <div class="text-center mt-6">
+          <div
+            class="text-center mt-6"
+          >
             <v-btn
               color="primary"
               class="analyze-btn"
               x-large
+              :disabled="input_file_data === null"
               depressed
             >
               <span
@@ -140,7 +143,6 @@
     </v-row>
 
     <v-snackbar
-      :timeout="5000"
       :value="error.status"
       absolute
       bottom

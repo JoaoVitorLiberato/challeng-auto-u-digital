@@ -1,7 +1,5 @@
 interface cacheStoreInterface {
-  cache: {
-    [key:string]:unknown;
-  };
+  typeSendSegment: string
 }
 
 export {
