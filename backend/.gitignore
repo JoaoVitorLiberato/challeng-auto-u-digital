@@ -6,3 +6,12 @@ __pycache__
 .env
 .env.local
 .env.production
+
+*.log
+*.tmp
+*.sqlite3
+*.pyc
+*.pyo
+.DS_Store
+node_modules/
+.nltk/

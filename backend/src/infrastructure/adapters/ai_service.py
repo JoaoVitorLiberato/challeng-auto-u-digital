@@ -10,7 +10,7 @@ from sklearn.pipeline import Pipeline
 from nltk.corpus import stopwords
 import nltk
 
-nltk.download('stopwords')
+nltk.download('popular')
 
 load_dotenv()
 
