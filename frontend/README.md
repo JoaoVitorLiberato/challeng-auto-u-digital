@@ -91,7 +91,7 @@ src/
 
 4.5. **Adicione as variáveis ambiente**
    ```bash
-   VUE_APP_SERVICE_API_URL = https://challeng-auto-u-digital-production.up.railway.app/
+   VUE_APP_SERVICE_API_URL = https://challeng-auto-u-digital-production.up.railway.app
    VUE_APP_SERVICE_API_KEY = 64315e7f4739f421ffd64bfe3d0eddc8
    ```
 
