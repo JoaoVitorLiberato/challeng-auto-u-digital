@@ -152,6 +152,24 @@
             </span>
           </div>
         </div>
+
+        <div
+          v-if="processError"
+          class="mt-7"
+        >
+          <v-btn
+            color="primary"
+            class="analyze-btn"
+            depressed
+            @click="processError = false, processLoading = false"
+          >
+            <span
+              class="mr-2"
+            >
+              Tentar novamente
+            </span>
+          </v-btn>
+        </div>
       </v-card>
     </v-dialog>
   </v-overlay>
@@ -168,3 +186,13 @@
     MixinControlProcess,
   ) {}
 </script>
+
+<style lang="stylus">
+  .analyze-btn
+    background: linear-gradient(135deg, #1976d2, #7b1fa2)
+    border-radius: 12px
+    padding: 16px 32px
+    font-weight: 600
+    text-transform: none
+    letter-spacing: 0.5px
+</style>
