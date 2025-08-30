@@ -2,7 +2,6 @@ import axios from "axios"
 
 const CONNECT_API = axios.create({
   baseURL: String(process.env.VUE_APP_SERVICE_API_URL),
-  // baseURL: "http://localhost:5000",
   headers: {
     "Content-Type": "application/json"
   }

@@ -7,6 +7,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
+from nltk.corpus import stopwords
+import nltk
+
+nltk.download('stopwords')
+
 load_dotenv()
 
 class AIService:
@@ -24,13 +29,13 @@ class AIService:
       device=-1
     )
 
-    texts, labels = self._loading_traning_data("training_data.txt")
-
+    stopwords_pt = stopwords.words('portuguese')
     self.classifier = Pipeline([
-      ("tfidf", TfidfVectorizer()),
+      ("tfidf", TfidfVectorizer(lowercase=True, stop_words=stopwords_pt)),
       ("clf", LogisticRegression())
     ])
 
+    texts, labels = self._loading_traning_data("training_data.txt")
     self.classifier.fit(texts, labels)
 
   def _loading_traning_data(self, file_name):
@@ -59,7 +64,18 @@ class AIService:
     return self.classifier.predict([text])[0]
   
   def classify_gpt(self, text: str):
-    prompt = f"Classifique o email {text} como 'Produtivo' ou 'Improdutivo' para ambiente corporativo, além da saúde finceira do colaborador, saúde, desempenho na empresa."
+    prompt = f"""
+      Você é um classificador de emails corporativos.
+      Analise o seguinte email:
+
+      "{text}"
+
+      Responda apenas com uma das opções abaixo:
+      - Produtivo: quando o email tem relevância para o trabalho, andamento de requisições, envio de arquivos ou qualquer informação útil.
+      - Improdutivo: quando o email não contribui para o trabalho (felicitações, mensagens pessoais, spam ou irrelevantes).
+
+      Responda somente com uma palavra: 'Produtivo' ou 'Improdutivo'.
+    """
 
     try:
       response = self.client.chat.completions.create(
@@ -71,12 +87,15 @@ class AIService:
         max_tokens=10
       )
 
-      classification = response.choices[0].message.content.strip()
+      classification = response.choices[0].message.content.strip().lower()
 
-      if "produtivo" in classification.lower():
+      if classification.startswith("produtivo"):
         return "Produtivo"
+      elif classification.startswith("improdutivo"):
+        return "Improdutivo"
       else:
         return "Improdutivo"
+
     except RateLimitError:
       return self.classify_local(text)
 

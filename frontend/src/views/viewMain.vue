@@ -9,7 +9,7 @@
       <v-col
         cols="12"
       >
-        <AnalizerEmailSectionComponent />
+        <AnalizerSectionHomeComponent />
       </v-col>
     </v-row>
   </v-container>
@@ -21,10 +21,10 @@
 
   @Component({
     components: {
-      AnalizerEmailSectionComponent: () => import(
-        /* webpackChuckName: "analizer-email-section-component" */
+      AnalizerSectionHomeComponent: () => import(
+        /* webpackChuckName: "analizer-email-section-home-component" */
         /* webpackMode: "eager" */
-        "@/components/layout/sections/AnalizerEmailSectionComponent.vue"
+        "@/components/layout/sections/AnalizerSectionHomeComponent.vue"
       )
     }
   })

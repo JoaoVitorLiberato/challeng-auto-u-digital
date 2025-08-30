@@ -1,0 +1,124 @@
+.loading-analyze
+  .v-card
+  .avatar-container
+    position: relative
+    
+    .v-avatar
+      animation: pulseGlow 2s ease-in-out infinite
+      
+      &::after
+        content: ''
+        position: absolute
+        top: -5px
+        left: -5px
+        right: -5px
+        bottom: -5px
+        border-radius: 50%
+        background: linear-gradient(135deg, #2196F3 0%, #9C27B0 100%)
+        opacity: 0.3
+        animation: ripple 2s ease-in-out infinite
+        z-index: -1
+    
+    .avatar-text
+      animation: bounceIn 0.8s ease-out 0.3s both
+  
+  .title-section
+    .main-title
+      animation: fadeInUp 0.8s ease-out 0.4s both
+      
+    .subtitle
+      animation: fadeInUp 0.8s ease-out 0.6s both
+  
+  .process-steps
+    .step-item
+      opacity: 0
+      transform: translateX(-20px)
+      animation: slideInLeft 0.6s ease-out forwards
+      
+      &:nth-child(1)
+        animation-delay: 2s
+        
+      &:nth-child(2)
+        animation-delay: 2.3s
+        
+      &:nth-child(3)
+        animation-delay: 3s
+        
+
+@keyframes pulseGlow
+  0%, 100%
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.3)
+  50%
+    box-shadow: 0 0 30px rgba(156, 39, 176, 0.5)
+
+@keyframes ripple
+  0%
+    transform: scale(1)
+    opacity: 0.3
+  50%
+    transform: scale(1.1)
+    opacity: 0.1
+  100%
+    transform: scale(1)
+    opacity: 0.3
+
+@keyframes bounceIn
+  0%
+    opacity: 0
+    transform: scale(0.3)
+  50%
+    opacity: 1
+    transform: scale(1.03)
+  70%
+    transform: scale(0.9)
+  100%
+    opacity: 1
+    transform: scale(1)
+
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translateY(20px)
+  to
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes slideInLeft
+  from
+    opacity: 0
+    transform: translateX(-20px)
+  to
+    opacity: 1
+    transform: translateX(0)
+
+.progress-container
+  position: relative
+  height: 4px
+  background: #E0E0E0
+  border-radius: 2px
+  overflow: hidden
+  margin: 20px 0
+  
+  .progress-bar
+    height: 100%
+    background: linear-gradient(90deg, #2196F3, #9C27B0)
+    border-radius: 2px
+    animation: progressFill 3s ease-in-out
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)
+
+@keyframes progressFill
+  0%
+    width: 0%
+  50%
+    width: 43%
+  50%
+    width: 73%
+  100%
+    width: 100%

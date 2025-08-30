@@ -1,5 +1,10 @@
 interface cacheStoreInterface {
-  typeSendSegment: string
+  typeSendSegment: string;
+  result: Record<string, string|number|string[]>
+  process: {
+    loading: boolean;
+    error: boolean;
+  }
 }
 
 export {

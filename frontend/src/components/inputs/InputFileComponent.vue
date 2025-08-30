@@ -125,6 +125,7 @@
               x-large
               :disabled="input_file_data === null"
               depressed
+              @click="handleSetEmailUploadService()"
             >
               <span
                 class="mr-2"
@@ -163,7 +164,6 @@
   import { Component } from "vue-property-decorator"
   import { mixins } from "vue-class-component"
   import { $refs } from "@/implements/types"
-
   import { MixinHandleChangeInput } from "@/mixins/MixinHandleChangeInput"
 
   @Component({})

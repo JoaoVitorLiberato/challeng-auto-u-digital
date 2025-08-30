@@ -21,10 +21,10 @@ module.exports = {
 
   pages: {
     index: {
-      title: "app",
-      description: "default app",
-      subject: "typescript, vue.js, vuex, vuetify, vue-router",
-      color: "#6600cc",
+      title: "Intelli Mail - Análises Inteligente de Emails",
+      description: "Descubra se seus emails são produtivos e receba sugestões de resposta automatizadas",
+      subject: "email, resposta automatizadas, emails automatizados, respostas inteligentes",
+      color: "#fff",
       entry: "./src/main"
     }
   }

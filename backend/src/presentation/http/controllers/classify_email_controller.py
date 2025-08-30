@@ -13,11 +13,12 @@ class ClassifyEmailController:
     result = usecase.execute(text)
     return {"result": result, "email_text": text}, 200
 
-  @staticmethod
+  @staticmethod  
   def extract_text_from_request(request):
-    data = request.get_json(silent=True)
-    if data and "email_text" in data and data["email_text"].strip():
-      return data["email_text"]
+    if request.content_type and request.content_type.startswith("application/json"):
+      data = request.get_json(silent=True)
+      if data and "email_text" in data and data["email_text"].strip():
+          return data["email_text"]
     elif "email_file" in request.files:
         file = request.files["email_file"]
         return TreatmentData.read_file(file)

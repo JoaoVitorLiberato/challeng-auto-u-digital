@@ -54,7 +54,8 @@
         </v-card>
       </v-col>
 
-      <v-col
+      <!-- Apenas para caso realize o crud e fique salvando para no banco todas as analises -->
+      <!-- <v-col
         cols="6"
       >
         <v-row
@@ -88,7 +89,7 @@
             </v-btn>
           </v-col>
         </v-row>
-      </v-col>
+      </v-col> -->
     </v-row>
   </header>
 </template>
@@ -99,19 +100,14 @@
 
   @Component({})
   export default class ToolbarComponent extends mixins() {
-    segment = "analisar"
+    segment = "analise-pendente"
 
     segments = [
       {
-        id: "analisar",
+        id: "analise-pendente",
         icon: "mail",
         text: "Analisar"
-      },
-      {
-        id: "historico",
-        icon: "history",
-        text: "Histórico"
-      },
+      }
     ]
 
     handleSetSegment (id: string): void {
