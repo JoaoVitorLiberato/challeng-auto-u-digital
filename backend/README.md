@@ -2,6 +2,7 @@
 
 ## 🛠️ Configuração e Instalação
 
+
 ### 1. Pré-requisitos
 - Python 3.8+
 - pip
