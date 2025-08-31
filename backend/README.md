@@ -148,7 +148,7 @@ Processa e classifica emails corporativos.
 ou
 ```form-data
 {
-  "email_file": arquivo.pdf ou arquivo.txt
+  "email_file": arquivo.pdf ou arquivo.txt // FORM-DATA
 }
 ```
 
