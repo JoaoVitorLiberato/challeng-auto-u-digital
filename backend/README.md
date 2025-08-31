@@ -33,11 +33,12 @@ API_KEY=64315e7f4739f421ffd64bfe3d0eddc8
 
 ### 3. Execução
 ```bash
-# Desenvolvimento
-python src/presentation/app.py
+# execução
+python -m src.presentation.app
 
-# Produção
-gunicorn -w 4 -b 0.0.0.0:5000 src.presentation.app:app
+ou
+ export PYTHONPATH=$PYTHONPATH:seu-local-onde-esta-a-pasta/challeng-auto-u-digital/backend/src/presentation/app.py
+ gunicorn src.presentation.app:app --bind 0.0.0.0:5000
 ```
 
 ## 📋 Descrição
