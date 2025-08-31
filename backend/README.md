@@ -27,7 +27,7 @@ pip install -r requirements.txt
 cp .env.example .env
 
 # Edite o arquivo .env com sua OPENAI_API_KEY ou use
-OPENAI_API_KEY=
+OPENAI_API_KEY=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
 API_KEY=64315e7f4739f421ffd64bfe3d0eddc8
 ```
 
