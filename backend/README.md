@@ -145,6 +145,13 @@ Processa e classifica emails corporativos.
   "email_text": "Conteúdo do email aqui"
 }
 ```
+ou
+```form-data
+{
+  "email_file": arquivo.pdf ou arquivo.txt
+}
+```
+
 
 **Resposta:**
 ```json
